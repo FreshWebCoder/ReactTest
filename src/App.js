@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "./components/navbar.js";
-import BlankModal from "./components/blank_modal.js"
+import BlankModal from "./components/blank_modal.js";
+import SideBar from "./components/sidebar.js";
 import $ from "jquery";
 import './assets/styles/loading.scss'
 import './App.css';
@@ -43,16 +44,22 @@ class App extends Component {
     };
     render() {
         return (
-            <div>
-                <Navbar />
+            <div className="wrapper">
+                <div className="container">
+                    <Navbar />
 
-                <div className="main-content">
-                    <button className="btn btn-purple" onClick={this.modalOpen}>Open Modal</button>
+                    <div className="page-content">
+                        <SideBar />
+
+                        <div className="main-content">
+                            <button className="btn btn-purple" onClick={this.modalOpen}>Open Modal</button>
+                        </div>
+                    </div>
+
+                    <BlankModal show={this.state.modalShow} onHide={this.modalClose} />
+
+                    {this.state.loading_overlay}
                 </div>
-
-                <BlankModal show={this.state.modalShow} onHide={this.modalClose} />
-
-                {this.state.loading_overlay}
             </div>
         );
     }

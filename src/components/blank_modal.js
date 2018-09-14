@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
-class BlankModal extends React.Component {
+class BlankModal extends Component {
   render() {
     return (
       <Modal
